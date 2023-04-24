@@ -1,0 +1,26 @@
+﻿@page
+@model Lesson4.Pages.Hobbies.MyHobbiesModel
+@{
+    ViewData["Title"] = "My Hobbies";
+}
+
+<section id="myHobbiesInfo">
+    <h1>My Hobbies</h1>
+    <p>I have a lot of different hobbies, here's the list of them:</p>
+</section>
+
+@foreach (var hobby in Model.MyHobbies)
+{
+    <div>
+        <a asp-page="/Hobbies/HobbyDetails" asp-route-id="@hobby.HobbyId" title="Hobby @hobby.Name">
+            <div style="margin-bottom = 50px">
+                <h3>@hobby.Name</h3>
+            </div>    
+        </a>
+        <div>
+            <img src="@hobby.Image"/>
+            <p>@hobby.Description</p>
+            <a href="@hobby.Url">Link</a>
+        </div> 
+    </div>
+}
